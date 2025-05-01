@@ -84,10 +84,7 @@
     void criar_cone(int cone[3][5]) {
         for (int i = 0; i < 3; i++) { 
             for (int j = 0; j < 5; j++){ 
-                if ((i == 0 && j == 2) || 
-                    (i == 1 && (j == 1 || j == 2 || j == 3)) || 
-                    (i == 2)
-                    ){
+                if (j>=2-i && j<=2+i){ //Verifica se está dentro do cone){
                         cone[i][j] = 1;
                 }
             }
@@ -128,11 +125,8 @@
     void criar_octaedro(int octaedro[5][5]){
         for (int i = 0; i < 5; i++){
             for (int j = 0; j < 5; j++){
-                if (
-                    ((i == 0 || i == 4) && j == 2) ||
-                    ((i == 1 || i == 3) && (j == 1 || j == 3)) || 
-                    (i == 2 || j == 2)
-                ){ 
+                if ((i <= 2 && j >= 2 - i && j <= 2 + i) || 
+                     (i > 2 && j >= i - 2 && j <= 6 - i)){ 
                     octaedro[i][j] = 1;
                 }
 
